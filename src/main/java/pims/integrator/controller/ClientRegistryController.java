@@ -51,10 +51,7 @@ public class ClientRegistryController {
             return new ResponseEntity("Clients Not Found",HttpStatus.NOT_FOUND);
     }
 
-    @GetMapping("/getclientsbydfinger" )
-    public ResponseEntity<Clients> getClientRegisterByFinger(){
-        return null;
-    }
+
 
     @GetMapping("/test" )
     public ResponseEntity<String> getTest(){
