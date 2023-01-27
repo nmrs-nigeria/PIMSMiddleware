@@ -13,6 +13,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import pims.integrator.security.AuthenticationEventListener;
 import pims.integrator.security.CustomUserDetailsService;
 import pims.integrator.security.JwtAuthenticationEntryPoint;
@@ -73,5 +74,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public AuthenticationManager authenticationManagerBean() throws Exception{
         return  super.authenticationManagerBean();
     }
+
+
 }
 

@@ -31,7 +31,7 @@ public class AuthenticationEventListener
     @Autowired
     UserAttemptRepository userAttemptRepository;
 
-    private static final int MAX_ATTEMPTS = 3;
+    private static final int MAX_ATTEMPTS = 5;
     private static final long LOCK_TIME_DURATION = 24 * 60 * 60 * 1000;
     static final Logger logger = LoggerFactory.getLogger(AuthenticationEventListener.class);
 
@@ -63,7 +63,7 @@ public class AuthenticationEventListener
                         userRepository.save(user);
                         userAttempt.setFailedAttempt(userAttempt.getFailedAttempt()+1);
                         userAttemptRepository.save(userAttempt);
-                        exception = new LockedException("Your account has been locked due to 3 failed attempts."
+                        exception = new LockedException("Your account has been locked due to 5 failed attempts."
                                 + " It will be unlocked after 24 hours.");
                     }
                 }

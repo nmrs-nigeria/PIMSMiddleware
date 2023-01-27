@@ -20,7 +20,7 @@ import pims.integrator.service.impl.UserServiceImpl;
 
 
 import javax.validation.Valid;
-
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/auth/")
 public class AuthenticationController {
@@ -60,11 +60,12 @@ public class AuthenticationController {
            // return new ResponseEntity<>("Email is already taken!", HttpStatus.BAD_REQUEST);
         }
         User user =  userService.createUser(signUpDto);
+
         return new ResponseEntity<>(user, HttpStatus.CREATED);
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @PostMapping(value = "/updqateuserstatus")
+    @PostMapping(value = "/updateuserstatus")
     public ResponseEntity<?> disableUser(@Valid @RequestBody UpdateUserDto userDto){
         User user =  userService.updateUserStatus(userDto);
         if(user!=null)

@@ -66,7 +66,7 @@ public class UserServiceImpl implements UserService {
         user.setUsername(signUpDto.getUsername());
         user.setEmail(signUpDto.getEmail());
         user.setPassword(passwordEncoder.encode(signUpDto.getPassword()));
-        user.setEnabled(false);
+        user.setEnabled(true);
         user.setAccountNonExpired(true);
         user.setAccountNonLocked(true);
         user.setCredentialsNonExpired(true);
